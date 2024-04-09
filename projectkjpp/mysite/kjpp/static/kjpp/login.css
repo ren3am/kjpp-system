@@ -1,0 +1,115 @@
+body {
+    background-color: #FFECEA;
+}
+
+.login-page {
+    background-color: #FFECEA;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: white;
+    Display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 0px solid black;
+    border-radius: 16px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%)
+}
+
+.login-container-left {
+    background-color: white;
+    width: 25vw;
+    height: 300px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    border: 0px solid black;
+    border-radius: 16px 0px 0px 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container-right{
+    background-color: #B80000;
+    width: 25vw;
+    height: 300px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    border: 0px solid black;
+    border-radius: 0px 16px 16px 0px;
+}
+.login-title {
+    color: #B80000;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    text-align: center;
+}
+
+.login-title-desc {
+    color: #525252;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    text-align: center;
+}
+
+.login-container-left-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form-login {
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form-login input {
+    background-color: #E7E7E7;
+    height: 45px;
+    width: 334px;
+    border: 0px solid black;
+    border-radius: 16px;
+    margin-top: 20px;
+    padding-left: 30px;
+}
+
+.login-container-left-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn {
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn input {
+    margin-top: 20px;
+    background-color: #B80000;
+    border: 0px solid black;
+    border-radius: 16px;
+    width: 124px;
+    height: 45px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    text-align: center;    
+}
