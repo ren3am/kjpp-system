@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /*===== Color =====*/
+    --body-color: white;
+    --sidebar-color: white;
+    --primary-color: #B80000;
+    --toggle-color: #;
+    --text-color: black;
+    --text-color-white : white;
+    --text-color-gray : #525252;
+    
+    /*===== Transition =====*/
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+body {
+    height: 100vh;
+    background: var(--body-color);
+
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    filter: drop-shadow(7px 3px 3px #dfdfdf);
+}
+
+.sidebar .image-text img{
+    width: 70px;
+    height: auto;
+
+}
+
+.btn-kertaskerjabaru{
+    display: flex;
+    margin-top: 30px;
+    align-items:center;
+    justify-content: center;
+}
+
+.btn-kertaskerjabaru button{
+    text-align: center;
+    font-size: 16px;
+    width: 210px;
+    height: 58px;
+    background-color: var(--primary-color);
+    color: var(--text-color-white);
+    border: 0px solid black;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.sidebar-menu {
+}
+
+.menu-listkk{
+    display: flex;
+    margin-top: 30px;
+    align-items:center;
+    justify-content: center;
+}
+.menu-listkk button{
+    text-align: left;
+    font-size: 16px;
+    width: 210px;
+    height: 58px;
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+    border: 0px solid black;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.menu-profil{
+    display: flex;
+    margin-top: 0px;
+    align-items:center;
+    justify-content: center;
+}
+
+.menu-profil button{
+    text-align: left;
+    font-size: 16px;
+    width: 210px;
+    height: 58px;
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+    border: 0px solid black;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+/* NAVBAR TOP*/
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.search-bar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 50px;
+    background-color: var(--sidebar-color);
+    margin-left: 250px;
+    filter: drop-shadow(-1px 5px 7px #dfdfdf);
+}
+
+.search-bar input{
+    background-color: transparent;
+    border: 0px solid black;
+    border-radius: 0px;
+    height: 30px;
+    margin-left: 30px;
+        
+}
+
+.search-bar input:focus {
+    outline: none; /* This removes the focus outline */
+    border: none; /* This removes the border when the input is focused */
+}
+
+hr {
+    border: none;
+    color: var(--text-color-gray);
+    overflow: visible;
+    text-align: center;
+    width: 90%;
+    height: 2px;
+    margin: auto;
+    background-color: var(--text-color-gray);
+  }
+  
+/* FORM KERTAS KERJA TENGAH*/
+
+.form-kertas-kerja {
+    width: 100%;
+    height: 3000px;
+    background-color: var(--body-color);
+    padding-top: 50px;
+    padding-left: 250px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-kertas-kerja-title{
+    padding-top: 30px;
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.form-kertas-kerja-1 {
+    
+}
+
+.form-kertas-kerja-1 form{
+    
+}
+
+.form-isian-1 {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/*kiri*/
+.form-kertas-kerja-1-left {
+    margin-left: 30px;
+}
+
+label,input{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .form-kertas-kerja-1-left h1{
+    color: var(--text-color-gray);
+    text-align: left;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.form-kertas-kerja-1-left input{
+    background-color: var(--body-color);
+    width: 364px;
+    height: 41px;
+    border: 2px solid var(--text-color-gray);
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form-kertas-kerja-1-left label{
+    margin-top: 10px;
+}
+
+/*kanan*/
+
+
+.form-kertas-kerja-1-right {
+    margin-left: 30px;
+}
+
+label,input{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .form-kertas-kerja-1-right h1{
+    color: var(--text-color-gray);
+    text-align: left;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.form-kertas-kerja-1-right input{
+    background-color: var(--body-color);
+    width: 364px;
+    height: 41px;
+    border: 2px solid var(--text-color-gray);
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form-kertas-kerja-1-right label{
+    margin-top: 10px;
+}
+
+.form-kertas-kerja-submit-btn{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-formisian-next{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.btn-formisian-next button{
+    height: 30px;
+    width: 100px;
+    background-color: var(--primary-color);
+    color: var(--text-color-white);
+    border: 0px solid var(--text-color-gray);
+    border-radius: 10px;
+    cursor: pointer;
+}
