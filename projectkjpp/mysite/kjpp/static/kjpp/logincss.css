@@ -91,7 +91,8 @@ body {
 .login-container-left-btn {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
+
 }
 
 .login-btn {
@@ -120,4 +121,16 @@ body {
     display: flex; 
     flex-direction: column; 
     font-family: "Poppins", sans-serif;
+} 
+
+.button-to-register {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;  
+    font-family: "Poppins", sans-serif;
+} 
+.register {
+    font-size: 20px; 
+    margin-left: 1%; 
+    margin-top: 3%;
 }
