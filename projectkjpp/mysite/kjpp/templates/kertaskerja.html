@@ -15,12 +15,7 @@
 </head>
 <body>
     <div class="kertaskerja-page">
-        <nav class="navbar">
-            <div class="search-bar">
-                <input type="text" placeholder="Search..">
-            </div>
-
-        </nav>
+        {% include 'navbar_search.html' %}
         <nav class="sidebar">
             <header>
                 <div class="image-text">
@@ -115,8 +110,6 @@
 
                         <label for="isian-spk-tanggal">Tanggal :</label>
                         <input type="date" id="isian-spk-tanggal">
-                        
-
                     </form>
 
                     
