@@ -14,6 +14,13 @@ class Pemberi_tugas(models.Model):
     
     #buat munculin list alamat di admin area 
 
+# class form_isian(models.Model):
+    
+
+
 class akun(models.Model): 
     username = models.CharField('username', max_length=300) 
     password = models.CharField('password', max_length=300) 
+
+    def __str__(self):
+        return self.username
