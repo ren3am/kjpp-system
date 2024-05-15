@@ -13,6 +13,8 @@
 
 </head>
 <body>
+
+    <!-- {{form}} -->
     <!-- {% include 'navbar.html' %} -->
     <!-- PAGE-->
     <div class="login-page">
@@ -29,6 +31,12 @@
 
                 <!--TENGAH (FORM)-->
                 <div class="login-container-left-form">
+                    <form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form}}
+                        <button>Submit</button>
+                    </form>
+
                     <form action="" method="post" action="" class="form-login"> 
                         <div class="form-login">
                             <!-- <label for="name">Enter your name: </label> -->
