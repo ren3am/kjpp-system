@@ -14,7 +14,8 @@ def login(request):
         try:
             Akun = akun.objects.get(username=username, password=password)
             # If user exists, redirect to a success page
-            return redirect('main_page')
+            # return redirect('main_page')
+            return redirect('kertaskerja') #placeholder blm ada main page
         except akun.DoesNotExist:
             # If user doesn't exist, show an error message
             messages.error(request, 'Invalid username or password')
