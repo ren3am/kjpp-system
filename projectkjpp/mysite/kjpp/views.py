@@ -37,6 +37,12 @@ def main_page(request):
     akuns = akun.objects.all()
     return render(request, 'main_page.html', {"akuns" : akuns}) 
 
+def kertaskerjatanah(request):
+    return render(request, 'kertaskerja_tanah.html', {})
+
+def kertaskerjabangunan(request):
+    return render(request, 'kertaskerja_bangunan.html', {}) 
+
 
 
 
