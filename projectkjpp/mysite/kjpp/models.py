@@ -70,4 +70,26 @@ class akun(models.Model):
     password = models.CharField('password', max_length=100) 
 
     def __str__(self):
-        return self.username
+        return self.username 
+
+
+class PropertyData(models.Model):
+    alamat_properti = models.CharField(max_length=255)
+    titik_koordinat = models.CharField(max_length=100)
+    rekaman_record = models.CharField(max_length=255)
+    contact_person = models.CharField(max_length=100)
+    jenis_data = models.CharField(max_length=50, choices=[('Transaksi', 'Transaksi'), ('Penawaran', 'Penawaran')])
+    jenis_properti = models.CharField(max_length=100)
+    luas_tanah = models.DecimalField(max_digits=10, decimal_places=2)
+    luas_bangunan = models.DecimalField(max_digits=10, decimal_places=2)
+    unit_perbandingan = models.CharField(max_length=50)
+    record = models.CharField(max_length=255)
+    harga_penawaran = models.DecimalField(max_digits=15, decimal_places=2)
+    diskon = models.DecimalField(max_digits=5, decimal_places=2)
+    perkiraan_transaksi = models.DecimalField(max_digits=15, decimal_places=2)
+    perkiraan_rcn = models.DecimalField(max_digits=15, decimal_places=2)
+    indikasi_nilai_pasar_bangunan = models.DecimalField(max_digits=15, decimal_places=2)
+    indikasi_nilai_tanah = models.DecimalField(max_digits=15, decimal_places=2)
+
+    def __str__(self):
+        return self.alamat_properti
