@@ -17,6 +17,9 @@
     --text-color-white : white;
     --text-color-gray : #525252;
     --bg-color-gray : #F1F1F1;
+    --bg-color-darkergray : #D9D9D9;
+    --merah-muda-1 : #F8BEBE;
+    --merah-muda-2 : #ED8A8A;
     
     /*===== Transition =====*/
     --tran-02: all 0.2s ease;
@@ -350,4 +353,127 @@ label,input{
 
 .formbangunan-1-pojok input, .formbangunan-1-pojok select {
     flex: 1;
+}
+
+/*form bangunan bagian 2*/
+
+.formbangunan-2{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin: 30px;
+    background-color: var(--bg-color-gray);
+    padding: 20px;
+}
+
+.center-text-tabel{
+    text-align: center; /* Center the text horizontally */
+    vertical-align: middle; /* Center the text vertically, if needed */
+}
+
+.formbangunan-2-kiri {
+
+}
+.formbangunan-table{
+    
+}
+
+.formbangunan-2 table{
+    /* border: 1px solid black;
+    border-collapse: collapse; */
+}
+
+.formbangunan-2-kiri th{
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: var(--text-color-white);
+    padding: 10px;
+    border: 0px solid black;
+    border-radius: 10px;
+}
+
+.formbangunan-2-kiri td{
+    /* border: 1px solid black;
+    border-collapse: collapse; */
+}
+
+.biaya-langsung{
+    background-color: var(--primary-color);
+    color: var(--text-color-white);
+    
+}
+
+.biaya-langsung td{
+    border: 0px solid black;
+    border-radius: 5px;
+}
+
+.total-biaya-langsung{
+    background-color: var(--primary-color);
+    color: var(--text-color-white);
+    
+}
+
+.total-biaya-langsung td{
+    padding: 5px;
+    padding-left: 10px;
+    border: 0px solid black;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+.formpembangunan-2-kanan-photoupload{
+    padding: 30px;
+}
+
+.photo-upload-box{
+    display: grid;
+    background-color: var(--bg-color-darkergray);
+}
+
+.td-left{
+    vertical-align: top;
+}
+
+.formbangunan-table td{
+    font-size: 12px;
+    padding-right: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+   
+.bangunan-input{
+    /* width: 100%;
+    background-color: var(--text-color-white);
+    border: 0px solid black;
+    border-radius: 2px;
+    font-size: 12px; */
+}
+
+.bangunan-input input{
+    width: 100%;
+    background-color: var(--text-color-white);
+    border: 0px solid black;
+    border-radius: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.bangunan-option{
+    
+}
+
+.bangunan-option select{
+    width: 100%;
+    background-color: var(--merah-muda-1);
+    border: 0px solid black;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.bangunan-option option{
+    background-color: var(--merah-muda-1);
+    font-size: 12px;
 }

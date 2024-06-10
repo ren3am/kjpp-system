@@ -75,7 +75,7 @@
             <!-- <button onclick="myFunction()">Click me!</button> -->
             
             <div class="form-kertas-kerja-bagianform">
-                <form id="form-isian"> <!-- INI FORMNYA-->
+                <form action="" method="POST"> {% csrf_token %} <!-- INI FORMNYA-->
                     <!-- PART 1 -->
                     <div class="formbangunan-1">
                         <!-- PART 1 KIRi-->
@@ -85,7 +85,7 @@
                             <label for="properti_kabupaten">Kabupaten/Kota* :</label>
                             <input type="text" name="properti_kabupaten" id="properti_kabupaten">
                             <label for="properti_tipebangunan">Tipe Bangunan* :</label>
-                            <select name="properti_tipebangunan" id="properti_tipebangunan">
+                            <select name="properti_tipebangunan" id="properti_tipebangunan" onchange="updateTipe(this)">
                                 <option value="tipe_rumahmewah">Rumah Mewah</option>
                                 <option value="tipe_rumahmenengah">Rumah Menengah</option>
                                 <option value="tipe_rumahsederhana">Rumah Sederhana</option>
@@ -135,15 +135,649 @@
 
                     </div>
                     
+                    <br>
                     <!-- PART 2-->
                     
                     <div class="formbangunan-2">
-
+ 
                         <!-- PART 2 KIRI -->
+                        <div class="formbangunan-2-kiri">
+                            ini kiri
+                            <div class="formbangunan-table">
+                                <table>
+                                    <tr>
+                                        <th>Elemen Bangunan</th>
+                                        <th>Spesifikasi Material</th>
+                                        <th><p>Biaya Unit</p><p>terpasang</p></th>
+                                        <th><p>Volume</p><p>(%)</p></th>
+                                        <th><p>BRP x</p><p>Volume</p></th>
+                                        <th>Adjustment</th>
+                                    </tr>
+                                    <tr class="biaya-langsung">
+                                        <td colspan="6" class="center-text-tabel">A.BIAYA LANGSUNG (HARD COST)</td>
+                                    </tr>
+                                    <!--pondasi rowspan-->
+                                    <tr>
+                                        <td rowspan="3" class="td-left">Pondasi :</td>
+                                        <td class="bangunan-input" id="pondasi_tipe_1"></td>
+                                        <td>Germany</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>aaa</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="fondasi_batukali">Batu Kali</option>
+                                            <option value="fondasi_rollagbata">Rollag Bata</option>
+                                            <option value="fondasi_tapakbeton">Tapak Beton</option>
+                                            <option value="fondasi_tiangpacangborpile">Tiang Pancang/Bor Pile</option>
+                                            <option value="fondasi_pondasidalamborpiletiangpancang">Pondasi Dalam Bore Pile/Tiang Pancang</option>
+                                            <option value="fondasi_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="fondasi_batukali">Batu Kali</option>
+                                            <option value="fondasi_rollagbata">Rollag Bata</option>
+                                            <option value="fondasi_tapakbeton">Tapak Beton</option>
+                                            <option value="fondasi_tiangpacangborpile">Tiang Pancang/Bor Pile</option>
+                                            <option value="fondasi_pondasidalamborpiletiangpancang">Pondasi Dalam Bore Pile/Tiang Pancang</option>
+                                            <option value="fondasi_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <!-- struktur rowspan-->
+                                    <tr>
+                                        <td rowspan="3" class="td-left">Struktur :</td>
+                                        <td>Maria Anders</td>
+                                        <td>Germany</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>aaa</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="struktur_betonbertulang">Beton Bertulang</option>
+                                            <option value="struktur_profilbaja">Profil Baja</option>
+                                            <option value="struktur_kayu">Kayu</option>
+                                            <option value="struktur_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Francisco Chang</td>
+                                        <td>Mexico</td>
+                                        <td>Germany</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="struktur_betonbertulang">Beton Bertulang</option>
+                                            <option value="struktur_profilbaja">Profil Baja</option>
+                                            <option value="struktur_kayu">Kayu</option>
+                                            <option value="struktur_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+
+                                    <!-- rangka atap rowspan-->
+                                    <tr>
+                                        <td rowspan="4" class="td-left">Rangka Atap :</td>
+                                        <td>Maria Anders</td>
+                                        <td>Germany</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>aaa</td>
+                                    </tr><tr>
+                                        <td>test</td>
+                                        <td>Francisco Chang</td>
+                                        <td>Mexico</td>
+                                        <td>Germany</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="rangkaatap_dakbeton">Dak Beton (Jika Pakai Balok)</option>
+                                            <option value="rangkaatap_kayugenteng">Kayu (Atap Genteng)</option>
+                                            <option value="rangkaatap_kayuasbes">Kayu (Atap Asbes, Seng, DLL, Tanpa Reng)</option>
+                                            <option value="rangkaatap_bajaringangenteng">Baja Ringan (Atap Genteng)</option>
+                                            <option value="rangkaatap_bajaringanasbes">Baja Ringan (Atap Asbes, Seng, DLL)</option>
+                                            <option value="rangkaatap_profilbaja">Profil Baja</option>
+                                            <option value="rangkaatap_dakbeton">Dak Beton</option>
+                                            <option value="rangkaatap_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Francisco Chang</td>
+                                        <td>Mexico</td>
+                                        <td>Germany</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="rangkaatap_dakbeton">Dak Beton (Jika Pakai Balok)</option>
+                                            <option value="rangkaatap_kayugenteng">Kayu (Atap Genteng)</option>
+                                            <option value="rangkaatap_kayuasbes">Kayu (Atap Asbes, Seng, DLL, Tanpa Reng)</option>
+                                            <option value="rangkaatap_bajaringangenteng">Baja Ringan (Atap Genteng)</option>
+                                            <option value="rangkaatap_bajaringanasbes">Baja Ringan (Atap Asbes, Seng, DLL)</option>
+                                            <option value="rangkaatap_profilbaja">Profil Baja</option>
+                                            <option value="rangkaatap_dakbeton">Dak Beton</option>
+                                            <option value="rangkaatap_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+
+                                    <!-- penutup atap rowspan-->
+                                    <tr>
+                                        <td rowspan="4" class="td-left">Penutup Atap :</td>
+                                        <td>Maria Anders</td>
+                                        <td>Germany</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>aaa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>test</td>
+                                        <td>Francisco Chang</td>
+                                        <td>Mexico</td>
+                                        <td>Germany</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="penutupatap_asbes">Asbes</option>
+                                            <option value="penutupatap_dakbeton">Dak Beton</option>
+                                            <option value="penutupatap_fiberglass">Fiberglass</option>
+                                            <option value="penutupatap_gentengkeramikglazur">Genteng Keramik Glazur</option>
+                                            <option value="penutupatap_gentengtanahliat">Genteng Tanah Liat</option>
+                                            <option value="penutupatap_gentengbeton">Genteng Beton</option>
+                                            <option value="penutupatap_gentengmetal">Genteng Metal</option>
+                                            <option value="penutupatap_bitumen">Bitumen (Ondulin/Onduvilla)</option>
+                                            <option value="penutupatap_tegola">Tegola</option>
+                                            <option value="penutupatap_senggelombang">Seng Gelombang</option>
+                                            <option value="penutupatap_sirap">Sirap</option>
+                                            <option value="penutupatap_spandek">Spandek</option>
+                                            <option value="penutupatap_pvc">Pvc</option>
+                                            <option value="penutupatap_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="penutupatap_asbes">Asbes</option>
+                                            <option value="penutupatap_dakbeton">Dak Beton</option>
+                                            <option value="penutupatap_fiberglass">Fiberglass</option>
+                                            <option value="penutupatap_gentengkeramikglazur">Genteng Keramik Glazur</option>
+                                            <option value="penutupatap_gentengtanahliat">Genteng Tanah Liat</option>
+                                            <option value="penutupatap_gentengbeton">Genteng Beton</option>
+                                            <option value="penutupatap_gentengmetal">Genteng Metal</option>
+                                            <option value="penutupatap_bitumen">Bitumen (Ondulin/Onduvilla)</option>
+                                            <option value="penutupatap_tegola">Tegola</option>
+                                            <option value="penutupatap_senggelombang">Seng Gelombang</option>
+                                            <option value="penutupatap_sirap">Sirap</option>
+                                            <option value="penutupatap_spandek">Spandek</option>
+                                            <option value="penutupatap_pvc">Pvc</option>
+                                            <option value="penutupatap_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <!-- platfond rowspan-->
+                                    <tr>
+                                        <td rowspan="5" class="td-left">Platfond :</td>
+                                        <td>Maria Anders</td>
+                                        <td>Germany</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>aaa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>test</td>
+                                        <td>Francisco Chang</td>
+                                        <td>Mexico</td>
+                                        <td>Germany</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="platfond_akustik">Akustik</option>
+                                            <option value="platfond_asbes">Asbes</option>
+                                            <option value="platfond_betonekspose">Beton Ekspose</option>
+                                            <option value="platfond_grc">Grc</option>
+                                            <option value="platfond_gypsum">Gypsum</option>
+                                            <option value="platfond_lambresering">Lambresering</option>
+                                            <option value="platfond_pvc">Pvc (Shunda PLafon DLL)</option>
+                                            <option value="platfond_triplek">Triplek</option>
+                                            <option value="platfond_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="platfond_akustik">Akustik</option>
+                                            <option value="platfond_asbes">Asbes</option>
+                                            <option value="platfond_betonekspose">Beton Ekspose</option>
+                                            <option value="platfond_grc">Grc</option>
+                                            <option value="platfond_gypsum">Gypsum</option>
+                                            <option value="platfond_lambresering">Lambresering</option>
+                                            <option value="platfond_pvc">Pvc (Shunda PLafon DLL)</option>
+                                            <option value="platfond_triplek">Triplek</option>
+                                            <option value="platfond_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+
+                                    <!-- dinding rowspan-->
+                                    <tr>
+                                        <td rowspan="10" class="td-left">Dinding :</td>
+                                        <td>Maria Anders</td>
+                                        <td>Germany</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>aaa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>test</td>
+                                        <td>Francisco Chang</td>
+                                        <td>Mexico</td>
+                                        <td>Germany</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="dinding_batako">Batako</option>
+                                            <option value="dinding_batamerah">Bata Merah</option>
+                                            <option value="dinding_bataringan">Bata Ringan</option>
+                                            <option value="dinding_dindingspandekrangkabaja">Dinding Spandek Rangka Baja</option>
+                                            <option value="dinding_partisigypsumboard2muka">Partisi Gypsumboard 2 Muka</option>
+                                            <option value="dinding_papandanpartisitriplekdicat">Papan dan Partisi Triplek Dicat</option>
+                                            <option value="dinding_roosterbata">Rooster Bata</option>
+                                            <option value="dinding_dilapisibatualam">Dilapisi Batu Alam</option>
+                                            <option value="dinding_dilapisicat">Dilapisi Cat (Diplester & Diaci)</option>
+                                            <option value="dinding_dilapisikeramik">Dilapisi Keramik</option>
+                                            <option value="dinding_dilapisimarmerlokal">Dilapisi Marmer Lokal</option>
+                                            <option value="dinding_dilapisimarmerimport">Dilapisi Marmer Import</option>
+                                            <option value="dinding_dilapisigranit">Dilapisi Granit/Homog. Tile</option>
+                                            <option value="dinding_dilapisiwallpaper">Dilapisi Wallpaper</option>
+                                            <option value="dinding_dilapisimozaik">Dilapisi Mozaik</option>
+                                            <option value="dinding_dilapisialimcompositepanel">Dilapisi Alum. Composite Panel</option>
+                                            <option value="dinding_tanpaplester">Tanpa Plester (dinding luar)</option>
+                                            <option value="dinding_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="dinding_batako">Batako</option>
+                                            <option value="dinding_batamerah">Bata Merah</option>
+                                            <option value="dinding_bataringan">Bata Ringan</option>
+                                            <option value="dinding_dindingspandekrangkabaja">Dinding Spandek Rangka Baja</option>
+                                            <option value="dinding_partisigypsumboard2muka">Partisi Gypsumboard 2 Muka</option>
+                                            <option value="dinding_papandanpartisitriplekdicat">Papan dan Partisi Triplek Dicat</option>
+                                            <option value="dinding_roosterbata">Rooster Bata</option>
+                                            <option value="dinding_dilapisibatualam">Dilapisi Batu Alam</option>
+                                            <option value="dinding_dilapisicat">Dilapisi Cat (Diplester & Diaci)</option>
+                                            <option value="dinding_dilapisikeramik">Dilapisi Keramik</option>
+                                            <option value="dinding_dilapisimarmerlokal">Dilapisi Marmer Lokal</option>
+                                            <option value="dinding_dilapisimarmerimport">Dilapisi Marmer Import</option>
+                                            <option value="dinding_dilapisigranit">Dilapisi Granit/Homog. Tile</option>
+                                            <option value="dinding_dilapisiwallpaper">Dilapisi Wallpaper</option>
+                                            <option value="dinding_dilapisimozaik">Dilapisi Mozaik</option>
+                                            <option value="dinding_dilapisialimcompositepanel">Dilapisi Alum. Composite Panel</option>
+                                            <option value="dinding_tanpaplester">Tanpa Plester (dinding luar)</option>
+                                            <option value="dinding_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="dinding_batako">Batako</option>
+                                            <option value="dinding_batamerah">Bata Merah</option>
+                                            <option value="dinding_bataringan">Bata Ringan</option>
+                                            <option value="dinding_dindingspandekrangkabaja">Dinding Spandek Rangka Baja</option>
+                                            <option value="dinding_partisigypsumboard2muka">Partisi Gypsumboard 2 Muka</option>
+                                            <option value="dinding_papandanpartisitriplekdicat">Papan dan Partisi Triplek Dicat</option>
+                                            <option value="dinding_roosterbata">Rooster Bata</option>
+                                            <option value="dinding_dilapisibatualam">Dilapisi Batu Alam</option>
+                                            <option value="dinding_dilapisicat">Dilapisi Cat (Diplester & Diaci)</option>
+                                            <option value="dinding_dilapisikeramik">Dilapisi Keramik</option>
+                                            <option value="dinding_dilapisimarmerlokal">Dilapisi Marmer Lokal</option>
+                                            <option value="dinding_dilapisimarmerimport">Dilapisi Marmer Import</option>
+                                            <option value="dinding_dilapisigranit">Dilapisi Granit/Homog. Tile</option>
+                                            <option value="dinding_dilapisiwallpaper">Dilapisi Wallpaper</option>
+                                            <option value="dinding_dilapisimozaik">Dilapisi Mozaik</option>
+                                            <option value="dinding_dilapisialimcompositepanel">Dilapisi Alum. Composite Panel</option>
+                                            <option value="dinding_tanpaplester">Tanpa Plester (dinding luar)</option>
+                                            <option value="dinding_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+
+                                    <!-- pintu&jendela rowspan-->
+                                    <tr>
+                                        <td rowspan="9" class="td-left">Pintu & Jendela :</td>
+                                        <td>Maria Anders</td>
+                                        <td>Germany</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>aaa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>test</td>
+                                        <td>Francisco Chang</td>
+                                        <td>Mexico</td>
+                                        <td>Germany</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="pintujendela_rasiovolumepj">Rasio Volume P/J Dibagi Lantai</option>
+                                            <option value="pintujendela_pintukayupanil">Pintu Kayu Panil</option>
+                                            <option value="pintujendela_pintukayudobeltriplekhpl">Pintu Kayu Dobel Triplek/Hpl</option>
+                                            <option value="pintujendela_pintukacarkaluminium">Pintu Kaca Rk Aluminium</option>
+                                            <option value="pintujendela_pintukacatemperedfloorhinge">Pintu Kaca Tempered Floor Hinge</option>
+                                            <option value="pintujendela_pintukmupvcpvc">Pintu Km Upvc/Pvc</option>
+                                            <option value="pintujendela_pintugarasikayu">Pintu Garasi Kayu</option>
+                                            <option value="pintujendela_pintugarasibesi">Pintu Garasi Besi</option>
+                                            <option value="pintujendela_foldinggate">Folding Gate</option>
+                                            <option value="pintujendela_rollingdoor">Rolling Door</option>
+                                            <option value="pintujendela_pintubesi">Pintu Besi</option>
+                                            <option value="pintujendela_jendelakacarkkayu">Jendela Kaca Rk Kayu</option>
+                                            <option value="pintujendela_jendelakacastopsol8mm">Jendela Kaca Stopsol 8 Mm Rangka Curtain Wall</option>
+                                            <option value="pintujendela_jendelakacatemperedframeless">Jendela Kaca Tempered Frameless</option>
+                                            <option value="pintujendela_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="pintujendela_rasiovolumepj">Rasio Volume P/J Dibagi Lantai</option>
+                                            <option value="pintujendela_pintukayupanil">Pintu Kayu Panil</option>
+                                            <option value="pintujendela_pintukayudobeltriplekhpl">Pintu Kayu Dobel Triplek/Hpl</option>
+                                            <option value="pintujendela_pintukacarkaluminium">Pintu Kaca Rk Aluminium</option>
+                                            <option value="pintujendela_pintukacatemperedfloorhinge">Pintu Kaca Tempered Floor Hinge</option>
+                                            <option value="pintujendela_pintukmupvcpvc">Pintu Km Upvc/Pvc</option>
+                                            <option value="pintujendela_pintugarasikayu">Pintu Garasi Kayu</option>
+                                            <option value="pintujendela_pintugarasibesi">Pintu Garasi Besi</option>
+                                            <option value="pintujendela_foldinggate">Folding Gate</option>
+                                            <option value="pintujendela_rollingdoor">Rolling Door</option>
+                                            <option value="pintujendela_pintubesi">Pintu Besi</option>
+                                            <option value="pintujendela_jendelakacarkkayu">Jendela Kaca Rk Kayu</option>
+                                            <option value="pintujendela_jendelakacastopsol8mm">Jendela Kaca Stopsol 8 Mm Rangka Curtain Wall</option>
+                                            <option value="pintujendela_jendelakacatemperedframeless">Jendela Kaca Tempered Frameless</option>
+                                            <option value="pintujendela_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="pintujendela_rasiovolumepj">Rasio Volume P/J Dibagi Lantai</option>
+                                            <option value="pintujendela_pintukayupanil">Pintu Kayu Panil</option>
+                                            <option value="pintujendela_pintukayudobeltriplekhpl">Pintu Kayu Dobel Triplek/Hpl</option>
+                                            <option value="pintujendela_pintukacarkaluminium">Pintu Kaca Rk Aluminium</option>
+                                            <option value="pintujendela_pintukacatemperedfloorhinge">Pintu Kaca Tempered Floor Hinge</option>
+                                            <option value="pintujendela_pintukmupvcpvc">Pintu Km Upvc/Pvc</option>
+                                            <option value="pintujendela_pintugarasikayu">Pintu Garasi Kayu</option>
+                                            <option value="pintujendela_pintugarasibesi">Pintu Garasi Besi</option>
+                                            <option value="pintujendela_foldinggate">Folding Gate</option>
+                                            <option value="pintujendela_rollingdoor">Rolling Door</option>
+                                            <option value="pintujendela_pintubesi">Pintu Besi</option>
+                                            <option value="pintujendela_jendelakacarkkayu">Jendela Kaca Rk Kayu</option>
+                                            <option value="pintujendela_jendelakacastopsol8mm">Jendela Kaca Stopsol 8 Mm Rangka Curtain Wall</option>
+                                            <option value="pintujendela_jendelakacatemperedframeless">Jendela Kaca Tempered Frameless</option>
+                                            <option value="pintujendela_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+
+                                    <!-- lantai rowspan-->
+                                    <tr>
+                                        <td rowspan="6" class="td-left">Lantai :</td>
+                                        <td>Maria Anders</td>
+                                        <td>Germany</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>aaa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>test</td>
+                                        <td>Francisco Chang</td>
+                                        <td>Mexico</td>
+                                        <td>Germany</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ernst Handel</td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="lantai_granit">Granit/Homogenous Tile</option>
+                                            <option value="lantai_granit Impor">Granit Impor</option>
+                                            <option value="lantai_karpet">Karpet</option>
+                                            <option value="lantai_keramik">Keramik</option>
+                                            <option value="lantai_marmerlokal">Marmer Lokal</option>
+                                            <option value="lantai_marmerimpor">Marmer Impor</option>
+                                            <option value="lantai_mozaik">Mozaik</option>
+                                            <option value="lantai_rabatbeton">Rabat Beton (Semen Ekspose)</option>
+                                            <option value="lantai_parkitjati">Parkit Jati</option>
+                                            <option value="lantai_teraso">Teraso</option>
+                                            <option value="lantai_vynil">Vynil</option>
+                                            <option value="lantai_papankayu">Papan Kayu</option>
+                                            <option value="lantai_platlantaibetont8cm">Plat Lantai Beton T = 8 cm</option>
+                                            <option value="lantai_platlantaibetont10cm">Plat Lantai Beton T = 10 cm</option>
+                                            <option value="lantai_platlantaibetont12cm">Plat Lantai Beton T = 12 cm</option>
+                                            <option value="lantai_platlantaibetont15cm">Plat Lantai Beton T = 15 cm</option>
+                                            <option value="lantai_platlantaibetont20cm">Plat Lantai Beton T = 20 cm</option>
+                                            <option value="lantai_platlantaibetont30cm">Plat Lantai Beton T = 30 cm</option>
+                                            <option value="lantai_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="lantai_granit">Granit/Homogenous Tile</option>
+                                            <option value="lantai_granit Impor">Granit Impor</option>
+                                            <option value="lantai_karpet">Karpet</option>
+                                            <option value="lantai_keramik">Keramik</option>
+                                            <option value="lantai_marmerlokal">Marmer Lokal</option>
+                                            <option value="lantai_marmerimpor">Marmer Impor</option>
+                                            <option value="lantai_mozaik">Mozaik</option>
+                                            <option value="lantai_rabatbeton">Rabat Beton (Semen Ekspose)</option>
+                                            <option value="lantai_parkitjati">Parkit Jati</option>
+                                            <option value="lantai_teraso">Teraso</option>
+                                            <option value="lantai_vynil">Vynil</option>
+                                            <option value="lantai_papankayu">Papan Kayu</option>
+                                            <option value="lantai_platlantaibetont8cm">Plat Lantai Beton T = 8 cm</option>
+                                            <option value="lantai_platlantaibetont10cm">Plat Lantai Beton T = 10 cm</option>
+                                            <option value="lantai_platlantaibetont12cm">Plat Lantai Beton T = 12 cm</option>
+                                            <option value="lantai_platlantaibetont15cm">Plat Lantai Beton T = 15 cm</option>
+                                            <option value="lantai_platlantaibetont20cm">Plat Lantai Beton T = 20 cm</option>
+                                            <option value="lantai_platlantaibetont30cm">Plat Lantai Beton T = 30 cm</option>
+                                            <option value="lantai_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bangunan-option"><select name="" id="">
+                                            <option value="lantai_granit">Granit/Homogenous Tile</option>
+                                            <option value="lantai_granit Impor">Granit Impor</option>
+                                            <option value="lantai_karpet">Karpet</option>
+                                            <option value="lantai_keramik">Keramik</option>
+                                            <option value="lantai_marmerlokal">Marmer Lokal</option>
+                                            <option value="lantai_marmerimpor">Marmer Impor</option>
+                                            <option value="lantai_mozaik">Mozaik</option>
+                                            <option value="lantai_rabatbeton">Rabat Beton (Semen Ekspose)</option>
+                                            <option value="lantai_parkitjati">Parkit Jati</option>
+                                            <option value="lantai_teraso">Teraso</option>
+                                            <option value="lantai_vynil">Vynil</option>
+                                            <option value="lantai_papankayu">Papan Kayu</option>
+                                            <option value="lantai_platlantaibetont8cm">Plat Lantai Beton T = 8 cm</option>
+                                            <option value="lantai_platlantaibetont10cm">Plat Lantai Beton T = 10 cm</option>
+                                            <option value="lantai_platlantaibetont12cm">Plat Lantai Beton T = 12 cm</option>
+                                            <option value="lantai_platlantaibetont15cm">Plat Lantai Beton T = 15 cm</option>
+                                            <option value="lantai_platlantaibetont20cm">Plat Lantai Beton T = 20 cm</option>
+                                            <option value="lantai_platlantaibetont30cm">Plat Lantai Beton T = 30 cm</option>
+                                            <option value="lantai_lainnya">Lainnya</option>
+                                        </select></td>
+                                        <td>Roland Mendel</td>
+                                        <td>Austria</td>
+                                        <td>Germany</td>
+                                        <td>Germany</td>
+                                    </tr>
+
+                                    <!-- utilitas rowspan-->
+                                    <tr>
+                                        <td rowspan="1" class="td-left">Utilitas :</td>
+                                        <td></td>
+                                        <td>Germany</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>aaa</td>
+                                    </tr>
+                                    <tr class="total-biaya-langsung">
+                                        <td colspan="5" >TOTAL BIAYA LANGSUNG (A)</td>
+                                        <td>NILAI AKHIR</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            
+
+                        </div>
 
                         <!-- PART 2 KANAN -->
+                        <div class="formbangunan-2-kanan">
+                            ini kanan
+                            photo upload
+                            <div class="formpembangunan-2-kanan-photoupload">
+                                <div class="photo-upload-box">
+                                    upload
+                                </div>
 
+                            </div>
+                            
+                        </div>
                     </div>
+                    <div  class="bangunan-btn">
+                        <button type="submit" class="bangunan-btn-save">Save</button>
+                    </div> 
 
                 </form> <!-- BATAS AKHIR FORM -->
             </div> <!--AKHIR DIV FORM BANGUNAN-->
