@@ -57,7 +57,51 @@ def kertaskerjatanah(request):
     ] 
     fields3 = [
          "Indikasi Nilai Tanah"
+    ] 
+    fields4 = [
+        "1. Hak atas Properti yang  dialihkan", 
+        "2. Syarat Pembiayaan", 
+        "3. Kondisi Penjualan", 
+        "4. Pengeluaran yang dilakukan segera setelah pembelian", 
+        "5. Kondisi Pasar",  
+    ]   
+    fields5 = [
+        "Jarak terhadap keramaian jalan", 
+        "Lebar Jalan (ROW)/Lebar Perkerasan", 
+        "Material Jalan", 
+        "Aksesibilitas", 
+        "Kondisi Lingkungan"
+    ] 
+    fields6 = [ 
+        "Kualitas Pendapatan", 
+        "Biaya Operasional", 
+        "Ketentuan Sewa", 
+        "Manajemen", 
+        "Bauran Penyewa"
+    ] 
+    fields7 = [
+        "Koefisien Dasar Bangunan (KDB)", 
+        "Koefisien Lantai Bangunan (KLB)", 
+        "Ketinggian Bangunan", 
+        "GSB", 
+        "Peruntukan"
+    ] 
+    fields8 = [
+        "Luas Tanah", 
+        "Bentuk ", 
+        "Elevasi ", 
+        "Topografi ", 
+        "Lebar Muka ", 
+        "Posisi ", 
+        "Jenis Tanah"
+    ]  
+    fields9 = [ 
+        "Luas Bangunan ", 
+        "Kualitas Bangunan ", 
+        "Kondisi Bangunan"
     ]
+
+
     if request.method == 'POST':
         PropertyData.objects.create(
             alamat_properti=request.POST['alamat_properti'],
@@ -78,7 +122,17 @@ def kertaskerjatanah(request):
             indikasi_nilai_tanah=request.POST['indikasi_nilai_tanah']
         )
         return redirect('success') 
-    return render(request, 'kertaskerja_tanah.html', {'fields': fields , 'fields2' : fields2 , 'fields3' : fields3}) 
+    return render(request, 'kertaskerja_tanah.html', {
+    'fields': fields,
+    'fields2': fields2,
+    'fields3': fields3,
+    'fields4': fields4,
+    'fields5': fields5,
+    'fields6': fields6,
+    'fields7': fields7, 
+    'fields8': fields8, 
+    'fields9': fields9
+})
 
 
 def kertaskerjabangunan(request):

@@ -1,3 +1,4 @@
+{% load livereload_tags %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -13,7 +14,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> --> 
-    
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+{% livereload_script %}
 </head>
 <body>
     
@@ -171,10 +184,133 @@
                             <div class="isi-tabel-desc1"></div>
                         {% endfor %} 
                         
-                        </form> 
+                    </form> 
                        
                 </div>   
-            </div>
+
+            </div>  
+
+
+            <div class="ml-[4%] h-[50%] w-[92%] flex flex-row ">  
+                <div class="h-full w-[4.7%] bg-[#B80000]"></div> 
+                <div class="h-full w-[19.3%] flex flex-col  border border-grey-400"> 
+                    <div class="w-full h-[3%] flex flex-row justify-center border  bg-[#ef8b8a]"> 
+                        <h1 class="mt-[4%] text-black ">Elemen Perbandingan</h1>
+                    </div>  
+                    {% csrf_token %}
+                    {% for field in fields4 %}   
+                        <div class="border border-grey-700">{{ field }}</div> 
+                        <div class="w-full flex flex-row border border-grey-700"> 
+                            <h1 class="ml-[40%] font-bold">Adjusted Price</h1>
+                        </div>
+                    {% endfor %}    
+                        <div class="py-[5%] w-full flex flex-row border border-grey-700"> 
+                            <h1 class="ml-[10%] font-bold underline">Lokasi</h1>
+                        </div> 
+                    {% csrf_token %}
+                    {% for field in fields5 %}   
+                        <div class="border border-grey-700">{{ field }}</div> 
+                    {% endfor %}   
+                        <div class=" w-full flex flex-row border border-grey-700"> 
+                            <h1 class="ml-[10%] font-bold ">Fasilitas</h1>
+                        </div> 
+                        <div class=" w-full flex flex-row border border-grey-700"> 
+                            <h1 class=" font-bold ">---------------</h1>
+                        </div>  
+                        <div class=" w-full flex flex-row border border-grey-700"> 
+                            <h1 class="ml-[10%] font-bold underline">Karakteristik Fisik</h1>
+                        </div>  
+                    {% csrf_token %}
+                    {% for field in fields8 %}   
+                        <div class="border border-grey-700">{{ field }}</div> 
+                    {% endfor %}  
+                    <div class=" w-full flex flex-row border border-grey-700"> 
+                        <h1 class="ml-[10%] font-bold ">Kondisi Pengembangan</h1>
+                    </div>   
+                    <div class=" w-full flex flex-row border border-grey-700"> 
+                        <h1 class=" font-bold ">---------------</h1>
+                    </div>   
+                    {% csrf_token %}
+                    {% for field in fields9 %}   
+                        <div class="border border-grey-700">{{ field }}</div> 
+                    {% endfor %} 
+                    <div class=" w-full flex flex-row border border-grey-700"> 
+                        <h1 class="ml-[10%] font-bold underline">Karakteristik Ekonomi</h1>
+                    </div>  
+                    {% csrf_token %}
+                    {% for field in fields6 %}   
+                        <div class="border border-grey-700">{{ field }}</div> 
+                    {% endfor %}  
+                    <div class=" w-full flex flex-row border border-grey-700"> 
+                        <h1 class="ml-[10%] font-bold underline">Karakteristik Legal</h1>
+                    </div>   
+                    {% csrf_token %}
+                    {% for field in fields7 %}   
+                        <div class="border border-grey-700">{{ field }}</div> 
+                    {% endfor %}  
+                       
+                </div>
+                <div class="h-full w-[19.3%] border border-grey-400"> 
+                    <div class="w-full h-[3%] flex flex-row justify-center border  bg-[#ef8b8a]"> 
+                        <h1 class="mt-[4%] text-black ">Deskripsi</h1>
+                    </div>
+                </div>
+                <div class="h-full w-[19.3%] border border-grey-400 flex flex-col"> 
+                    <div class="w-full h-[3%] flex flex-row justify-center border  bg-[#ef8b8a] flex flex-row">  
+                        <div class="w-[40%] h-full flex flex-row justify-center"> 
+                            <h1 class="mt-[10%]">Deskripsi</h1>
+                        </div>
+                        <div class="w-[20%] h-full border border-grey-400 flex flex-row justify-center"> 
+                            <h1 class="mt-[20%]">%</h1>
+                        </div>
+                        <div class="w-[40%] h-full flex flex-row justify-center"> 
+                            <h1 class="text-[10px] mt-[15%]">Penyesuaian</h1>
+                        </div>
+                    </div> 
+                    <div class="h-[95%] w-full  flex flex-row"> 
+                        <div class="w-[40%] h-full "></div>
+                        <div class="w-[20%] h-full border border-grey-400"></div>
+                        <div class="w-[40%] h-full "></div>
+                    </div>
+                </div>
+                <div class="h-full w-[19.3%] border border-grey-400"> 
+                    <div class="w-full h-[3%] flex flex-row justify-center border  bg-[#ef8b8a] flex flex-row">  
+                        <div class="w-[40%] h-full flex flex-row justify-center"> 
+                            <h1 class="mt-[10%]">Deskripsi</h1>
+                        </div>
+                        <div class="w-[20%] h-full border border-grey-400 flex flex-row justify-center"> 
+                            <h1 class="mt-[20%]">%</h1>
+                        </div>
+                        <div class="w-[40%] h-full flex flex-row justify-center"> 
+                            <h1 class="text-[10px] mt-[15%]">Penyesuaian</h1>
+                        </div>
+                    </div> 
+                    <div class="h-[95%] w-full  flex flex-row"> 
+                        <div class="w-[40%] h-full "></div>
+                        <div class="w-[20%] h-full border border-grey-400"></div>
+                        <div class="w-[40%] h-full "></div>
+                    </div>
+                </div>
+                <div class="h-full w-[19.3%] border border-grey-400"> 
+                    <div class="w-full h-[3%] flex flex-row justify-center border  bg-[#ef8b8a] flex flex-row">  
+                        <div class="w-[40%] h-full flex flex-row justify-center"> 
+                            <h1 class="mt-[10%]">Deskripsi</h1>
+                        </div>
+                        <div class="w-[20%] h-full border border-grey-400 flex flex-row justify-center"> 
+                            <h1 class="mt-[20%]">%</h1>
+                        </div>
+                        <div class="w-[40%] h-full flex flex-row justify-center"> 
+                            <h1 class="text-[10px] mt-[15%]">Penyesuaian</h1>
+                        </div>
+                    </div> 
+                    <div class="h-[95%] w-full  flex flex-row"> 
+                        <div class="w-[40%] h-full "></div>
+                        <div class="w-[20%] h-full border border-grey-400"></div>
+                        <div class="w-[40%] h-full "></div>
+                    </div>
+                </div>
+            </div>  
+
         </div>
     </div>
 </body>
