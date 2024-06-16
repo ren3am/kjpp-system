@@ -64,6 +64,7 @@ def kertaskerjatanah(request):
 
 def kertaskerjabangunan(request):
     if request.method == 'POST':
+        # ambil data dari formnya
         # nama modelsnya   =   nama di formnya
         properti_propinsi = request.POST.get('properti_propinsi')
         properti_kabupaten = request.POST.get('properti_kabupaten')
@@ -71,17 +72,33 @@ def kertaskerjabangunan(request):
         properti_namabangunan = request.POST.get('properti_namabangunan')
         properti_noimb = request.POST.get('properti_noimb')
         properti_luasdilapangan = request.POST.get('properti_luasdilapangan')
+        properti_jumlahlantai = request.POST.get('properti_jumlahlantai')
+        properti_tahunbangun = request.POST.get('properti_tahunbangun')
+        properti_tahunrenovasi = request.POST.get('properti_tahunrenovasi')
+        properti_tahunpenilaian = request.POST.get('properti_tahunpenilaian')
+        properti_umurekonomis = request.POST.get('properti_umurekonomis')
+        properti_ikk = request.POST.get('properti_ikk')
+        properti_ilm = request.POST.get('properti_ilm')
 
-        # Optional: Add basic validation
+        # Basic validation isi semua atau nggak
         if all([properti_propinsi, properti_kabupaten, properti_tipebangunan,
-                properti_namabangunan, properti_noimb, properti_luasdilapangan]):
+                properti_namabangunan, properti_noimb, properti_luasdilapangan,
+                properti_jumlahlantai, properti_tahunbangun, properti_tahunrenovasi,
+                properti_tahunpenilaian, properti_umurekonomis]):
             new_properti = objekProperti(
                 properti_propinsi=properti_propinsi,
                 properti_kabupaten=properti_kabupaten,
                 properti_tipebangunan=properti_tipebangunan,
                 properti_namabangunan=properti_namabangunan,
                 properti_noimb=properti_noimb,
-                properti_luasdilapangan=properti_luasdilapangan
+                properti_luasdilapangan=properti_luasdilapangan,
+                properti_jumlahlantai = properti_jumlahlantai,
+                properti_tahunbangun = properti_tahunbangun,
+                properti_tahunrenovasi = properti_tahunrenovasi,
+                properti_tahunpenilaian = properti_tahunpenilaian,
+                properti_umurekonomis = properti_umurekonomis,
+                properti_ikk = properti_ikk,
+                properti_ilm = properti_ilm,
             )
             new_properti.save()
             return redirect('kertaskerja')  # Ensure you have a URL named 'success_page'

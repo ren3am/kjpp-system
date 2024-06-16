@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="{% static 'kjpp/myjs.js' %}"></script>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
 </head>
 <body>
@@ -68,43 +69,43 @@
                         <!--BAGIAN KIRI-->
 
                         <div class="form-kertas-kerja-1-left">
-                            <h1>Pemberi Tugas</h1>
-                            <label for="isian-alamat">Alamat :</label>
-                            <input type="text" id="Alamat">
+                            <h1>Pemberi Tugas</h1> <!--INI BLM ADA FORM BUAT NAMA-->
+                            <label for="pemberitugas_alamat">Alamat :</label>
+                            <input type="text" name="pemberitugas_alamat" id="pemberitugas_alamat">
                             
-                            <label for="isian-desa">Desa :</label>
-                            <input type="text" id="desa">
+                            <label for="pemberitugas_desa">Desa :</label>
+                            <input type="text" name="pemberitugas_desa" id="pemberitugas_desa">
     
-                            <label for="isian-kecamatan">Kecamatan :</label>
-                            <input type="text" id="Kecamatan">
+                            <label for="pemberitugas_kecamatan">Kecamatan :</label>
+                            <input type="text" name="pemberitugas_kecamatan" id="pemberitugas_kecamatan">
     
-                            <label for="isian-kabupaten">Kabupaten :</label>
-                            <input type="text" id="Kabupaten">
+                            <label for="pemberitugas_kabupaten">Kabupaten :</label>
+                            <input type="text" name="pemberitugas_kabupaten" id="pemberitugas_kabupaten">
     
-                            <label for="isian-provinsi">Provinsi :</label>
-                            <input type="text" id="Provinsi">
+                            <label for="pemberitugas_provinsi">Provinsi :</label>
+                            <input type="text" name="pemberitugas_provinsi" id="pemberitugas_provinsi">
                         </div>
 
                         <!-- BAGIAN KANAN -->
 
                         <div class="form-kertas-kerja-1-right">
                             <h1>Surat Order</h1>
-                            <label for="isian-suratorder-no">No :</label>
-                            <input type="text" id="isian-suratorder-no">
+                            <label for="isian_suratorder_no">No :</label>
+                            <input type="text" name="isian_suratorder_no" id="isian_suratorder_no">
                             
-                            <label for="isian-suratorder-tanggal">Tanggal :</label>
-                            <input type="date" id="desa">
+                            <label for="isian_suratorder_tanggal">Tanggal :</label>
+                            <input type="date" name="isian_suratorder_tanggal" id="isian_suratorder_tanggal">
 
                             <br>
                             <br>
 
                             <h1>SPK</h1>
 
-                            <label for="isian-spk-no">No :</label>
-                            <input type="text" id="isian-spk-no">
+                            <label for="isian_spk_no">No :</label>
+                            <input type="text" name="isian_spk_no" id="isian_spk_no">
 
-                            <label for="isian-spk-tanggal">Tanggal :</label>
-                            <input type="date" id="isian-spk-tanggal">
+                            <label for="isian_spk_tanggal">Tanggal :</label>
+                            <input type="date" name="isian_spk_tanggal" id="isian_spk_tanggal">
                         </div>
 
                     </div>
@@ -123,11 +124,11 @@
 
                         <div class="form-kertas-kerja-1-left">
                             <h1>Survey</h1>
-                            <label for="isian-survey-nosurattugas">No. Surat Tugas :</label>
-                            <input type="text" id="isian-survey-nosurattugas">
+                            <label for="survei_nosurattugas">No. Surat Tugas :</label>
+                            <input type="text" name="survei_nosurattugas" id="survei_nosurattugas">
                             
-                            <label for="isian-survey-tanggal">Tanggal :</label>
-                            <input type="date" id="isian-survey-tanggal">
+                            <label for="survei_tanggal">Tanggal :</label>
+                            <input type="date" name="survei_tanggal" id="survei_tanggal">
     
                             <label for="isian-survey-tanggalterbilang">Tanggal terbilang :</label>
                             <input type="text" id="isian-survey-tanggalterbilang">
@@ -138,8 +139,8 @@
                             <label for="isian-survey-tahun">Tahun :</label>
                             <input type="text" id="isian-survey-tahun">
     
-                            <label for="isian-survey-pukul">Pukul :</label>
-                            <input type="text" id="isian-survey-pukul">
+                            <label for="survei_pukul">Pukul :</label>
+                            <input type="text" name="survei_pukul" id="survei_pukul">
     
                             <label for="isian-survey-hari">Hari :</label>
                             <input type="text" id="isian-survey-hari">                          
@@ -150,52 +151,68 @@
                         <div class="form-kertas-kerja-1-right">
         
                             <h1>Tujuan Penilaian</h1>
-                            <input type="text" id="isian-tujuanpenilaian">
+                            <input type="text" name ="isian_tujuanpenilaian" id="isian_tujuanpenilaian">
     
                             <h1>Kantor KJPP</h1>
-                            <input type="text" id="isian-kantorkjpp">
+                            <input type="text" name = "isian_kantorkjpp" id="isian_kantorkjpp">
     
                             <h1>Pendamping Inspeksi</h1>
-                            <input type="text" id="isian-pendampinginspeksi">
+                            <input type="text" name="isian_pendampinginspeksi" id="isian_pendampinginspeksi">
     
                             <h1>Data Properti</h1>
-                            <label for="isian-suratorder-no">Tipe Properti :</label>
-                            <input type="text" id="isian-suratorder-no">
+                            <label for="properti_tipeproperti">Tipe Properti :</label>
+                            <input type="text" name="properti_tipeproperti" id="properti_tipeproperti">
                             
-                            <label for="isian-suratorder-tanggal">Luas Tanah :</label>
-                            <input type="date" id="desa">
+                            <label for="properti_luastanah">Luas Tanah :</label>
+                            <input type="text" name="properti_luastanah" id="properti_luastanah">
     
-                            <label for="isian-suratorder-tanggal">Nama Debitur :</label>
-                            <input type="date" id="desa">
+                            <label for="debitur_namadebitur">Nama Debitur :</label>
+                            <input type="text" name="debitur_namadebitur" id="debitur_namadebitur">
     
-                            <label for="isian-suratorder-tanggal">Nama Aset :</label>
-                            <input type="date" id="desa">
+                            <label for="properti_alamataset">Alamat Aset :</label>
+                            <input type="text" name="properti_alamataset" id="properti_alamataset">
     
-                            <label for="isian-suratorder-tanggal">Kecamatan :</label>
-                            <input type="date" id="desa">
+                            <label for="properti_kecamatan">Kecamatan :</label>
+                            <input type="text" name="properti_kecamatan" id="properti_kecamatan">
     
-                            <label for="isian-suratorder-tanggal">Kabupaten :</label>
-                            <input type="date" id="desa">
+                            <label for="properti_kabupaten">Kabupaten :</label>
+                            <input type="text" name="properti_kabupaten" id="properti_kabupaten">
     
-                            <label for="isian-suratorder-tanggal">Propinsi :</label>
-                            <input type="date" id="desa">
+                            <label for="properti_propinsi">Propinsi :</label>
+                            <input type="text" name="properti_propinsi" id="properti_propinsi">
+
+                            <label for="properti_kodepos">Kode Pos :</label>
+                            <input type="text" name="properti_kodepos" id="properti_kodepos">
+
+                            <label for="properti_notelp">No. Telepon :</label>
+                            <input type="text" name="properti_notelp" id="properti_notelp">
+
+                            <label for="properti_titikkoordinat">Titik Koordinat :</label>
+                            <input type="text" name="properti_titikkoordinat" id="properti_titikkoordinat">
+
+                            <label for="properti_pencapaianlokasiaksesjalan">Pencapaian Lokasi / Akses Jalan :</label>
+                            <input type="text" name="properti_pencapaianlokasiaksesjalan" id="properti_pencapaianlokasiaksesjalan">
+
+                            <label for="properti_lebarjalandepanproperti">Lebar Jalan Depan Properti :</label>
+                            <input type="text" name="properti_lebarjalandepanproperti" id="properti_lebarjalandepanproperti">
+
+                            <label for="properti_kondisijalanmaterialjalan">Kondisi Jalan / Material Jalan :</label>
+                            <input type="text" name="properti_kondisijalanmaterialjalan" id="properti_kondisijalanmaterialjalan">
+
+                            <label for="properti_penghunipersilsaatini">Penguni Persil Saat Ini :</label>
+                            <input type="text" name="properti_penghunipersilsaatini" id="properti_penghunipersilsaatini">
+
+                            <label for="properti_peruntukaneksisting">Peruntukan Eksisting :</label>
+                            <input type="text" name="properti_peruntukaneksisting" id="properti_peruntukaneksisting">
     
                             <br>
                             <br>
-    
-                            <h1>SPK</h1>
-    
-                            <label for="isian-spk-no">No :</label>
-                            <input type="text" id="isian-spk-no">
-    
-                            <label for="isian-spk-tanggal">Tanggal :</label>
-                            <input type="date" id="isian-spk-tanggal">
                         </div>
         
                     </div>
-                    <button>
-                        
-                    </button>
+                    <div  class="isian-btn">
+                        <button type="submit" class="isian-btn-save">Save</button>
+                    </div> 
 
 
 

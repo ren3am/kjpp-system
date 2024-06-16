@@ -247,3 +247,21 @@ label,input{
 .form-kertas-kerja-1-right label{
     margin-top: 10px;
 }
+
+.isian-btn{
+    display: flex;
+    width: 100%;
+    justify-content:end;
+    align-items: center;
+}
+
+.isian-btn button{
+    background-color: var(--primary-color);
+    color: var(--text-color-white);
+    width: 100px;
+    height: 40px;
+    margin-right: 250px;
+    margin-top: 50px;
+    border: 0px solid var(--text-color-gray);
+    border-radius: 10px;
+}
