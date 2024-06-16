@@ -114,6 +114,15 @@ class objekProperti(models.Model):
     properti_kabupaten = models.CharField('Kabupaten properti', max_length=200, null=True, blank=True)
     properti_kecamatan = models.CharField('Kecamatan properti', max_length=200, null=True, blank=True)
     #
+    properti_kodepos = models.CharField('Kode Pos', max_length=200, null=True, blank=True)
+    properti_notelp = models.CharField('No Telp', max_length=200, null=True, blank=True)
+    properti_titikkoordinat = models.CharField('Titik Koordinat', max_length=200, null=True, blank=True)
+    properti_pencapaianlokasiaksesjalan = models.CharField('Pencapaian Lokasi / Akses Jalan', max_length=200, null=True, blank=True)
+    properti_lebarjalandepanproperti = models.CharField('Lebar jalan depan properti', max_length=200, null=True, blank=True)
+    properti_kondisijalanmaterialjalan = models.CharField('Kondisi jalan / material jalan', max_length=200, null=True, blank=True)
+    properti_penghunipersilsaatini = models.CharField('Penghuni persil saat ini', max_length=200, null=True, blank=True)
+    properti_peruntukaneksisting = models.CharField('Peruntukan eksisting', max_length=200, null=True, blank=True)
+    # bangunan
     properti_tipebangunan = models.CharField('Tipe bangunan', max_length=200, null=True, blank=True)
     properti_namabangunan = models.CharField('Nama bangunan', max_length=200, null=True, blank=True)
     properti_noimb = models.CharField('No imb', max_length=200, null=True, blank=True)
@@ -127,9 +136,6 @@ class objekProperti(models.Model):
     properti_umurekonomis = models.CharField('Umur ekonomis', max_length=200, null=True, blank=True, default='0')
     properti_ikk = models.CharField('IKK', max_length=200, null=True, blank=True, default='0')
     properti_ilm = models.CharField('ILM', max_length=200, null=True, blank=True, default='0')
-    # test bisa data kosong
-    properti_kodepos = models.CharField('kodepos', max_length=200, null=True, blank=True)
-    #form isian
 
     def __str__(self) :
         return self.properti_namabangunan
