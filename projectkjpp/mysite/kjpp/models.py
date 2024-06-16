@@ -54,8 +54,8 @@ class form_isian(models.Model):
 
 class survei(models.Model):
     survei_nosurattugas = models.CharField('No surat tugas', max_length=30, null=True)
-    survei_tanggal = models.DateField('Tanggal Survei')
-    survei_tahun = models.IntegerField('Tahun survei')
+    survei_tanggal = models.DateField('Tanggal Survei', null=True, blank=True)
+    survei_tahun = models.IntegerField('Tahun survei', null=True, blank=True)
     survei_pukul = models.CharField('Waktu survei', max_length=10, null=True)
     
     def __str__(self):
@@ -97,6 +97,7 @@ class akun(models.Model):
         return self.username
     
 class debitur(models.Model):
+    debitur_namadebitur = models.CharField('Nama debitur', max_length=300, null=True, blank=True)
     debitur_alamat = models.CharField('Alamat debitur', max_length=300, null=True, blank=True)
     debitur_desa = models.CharField('Desa debitur', max_length=30, null=True, blank=True)
     debitur_kecamatan = models.CharField('Kecamatan debitur', max_length=30, null=True, blank=True)
