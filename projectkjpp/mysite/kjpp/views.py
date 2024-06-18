@@ -99,7 +99,21 @@ def kertaskerjatanah(request):
         "Luas Bangunan ", 
         "Kualitas Bangunan ", 
         "Kondisi Bangunan"
-    ]
+    ]  
+    fields10 = [
+        "Gross Adjustment", 
+        "Bobot Absolute", 
+        "Inverse", 
+        "Bobot Iverse"
+    ] 
+    fields11 = [
+        "Max", 
+        "Min", 
+        "Deviasi"
+    ] 
+ 
+    y = 4
+      
 
 
     if request.method == 'POST':
@@ -123,6 +137,7 @@ def kertaskerjatanah(request):
         )
         return redirect('success') 
     return render(request, 'kertaskerja_tanah.html', {
+   
     'fields': fields,
     'fields2': fields2,
     'fields3': fields3,
@@ -131,8 +146,13 @@ def kertaskerjatanah(request):
     'fields6': fields6,
     'fields7': fields7, 
     'fields8': fields8, 
-    'fields9': fields9
+    'fields9': fields9 , 
+    'y': y  ,
+    'fields10' : fields10, 
+    'fields11' : fields11
+    
 })
+
 
 
 def kertaskerjabangunan(request):
