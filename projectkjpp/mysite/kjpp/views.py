@@ -76,6 +76,35 @@ def kertaskerja(request):
                 properti_titikkoordinat, properti_pencapaianlokasiaksesjalan,
                 properti_lebarjalandepanproperti, properti_kondisijalanmaterialjalan,
                 properti_penghunipersilsaatini, properti_peruntukaneksisting]):
+            new_pemberitugas = pemberi_tugas(
+                pemberitugas_alamat = pemberitugas_alamat,
+                pemberitugas_desa = pemberitugas_desa,
+                pemberitugas_kecamatan = pemberitugas_kecamatan,
+                pemberitugas_kabupaten = pemberitugas_kabupaten,
+                pemberitugas_provinsi = pemberitugas_provinsi,
+            )
+            new_pemberitugas.save()
+
+            new_survei = survei(
+                survei_nosurattugas=survei_nosurattugas,
+                survei_tanggal = survei_tanggal,
+                survei_pukul = survei_pukul,
+            )
+            new_survei.save()
+
+            new_formisian = form_isian(
+                isian_suratorder_no = isian_suratorder_no,
+                isian_suratorder_tanggal = isian_suratorder_tanggal,
+                #
+                isian_spk_no = isian_spk_no,
+                isian_spk_tanggal = isian_spk_tanggal,
+                #
+                isian_tujuanpenilaian = isian_tujuanpenilaian,
+                isian_kantorkjpp = isian_kantorkjpp,
+                isian_pendampinginspeksi = isian_pendampinginspeksi,
+            )
+            new_formisian.save()
+
             new_properti = objekProperti(
                 properti_tipeproperti = properti_tipeproperti,
                 properti_luastanah = properti_luastanah,
@@ -92,32 +121,6 @@ def kertaskerja(request):
 
             )
             new_properti.save()
-
-            new_pemberitugas = pemberi_tugas(
-                pemberitugas_alamat = pemberitugas_alamat,
-                pemberitugas_desa = pemberitugas_desa,
-                pemberitugas_kecamatan = pemberitugas_kecamatan,
-                pemberitugas_kabupaten = pemberitugas_kabupaten,
-                pemberitugas_provinsi = pemberitugas_provinsi,
-            )
-            new_pemberitugas.save()
-
-            new_formisian = form_isian(
-                isian_suratorder_no = isian_suratorder_no,
-                isian_suratorder_tanggal = isian_suratorder_tanggal,
-                #
-                isian_tujuanpenilaian = isian_tujuanpenilaian,
-                isian_kantorkjpp = isian_kantorkjpp,
-                isian_pendampinginspeksi = isian_pendampinginspeksi,
-            )
-            new_formisian.save()
-
-            new_survei = survei(
-                survei_nosurattugas=survei_nosurattugas,
-                survei_tanggal = survei_tanggal,
-                survei_pukul = survei_pukul,
-            )
-            new_survei.save()
 
             new_debitur = debitur(
                 debitur_namadebitur = debitur_namadebitur,
