@@ -63,6 +63,16 @@ class survei(models.Model):
 
 # class tenaga_ahli(models.Model):
 
+class pegawai(models.Model):
+    pegawai_id = models.CharField('Id pegawai', max_length=100, null=True, blank=True)
+    pegawai_nama = models.CharField('Nama pegawai', max_length=100, null=True, blank=True)
+    pegawai_nomappi = models.CharField('No MAPPI pegawai', max_length=100, null=True, blank=True)
+    pegawai_noregister = models.CharField('No register pegawai', max_length=100, null=True, blank=True)
+    # survei = models.ManyToManyField(survei, through="detail_survei")
+
+    def __str__(self):
+        return self.pegawai_nama
+
 
 
 class akun(models.Model): 
@@ -93,3 +103,51 @@ class PropertyData(models.Model):
 
     def __str__(self):
         return self.alamat_properti
+
+class debitur(models.Model):
+    debitur_namadebitur = models.CharField('Nama debitur', max_length=300, null=True, blank=True)
+    debitur_alamat = models.CharField('Alamat debitur', max_length=300, null=True, blank=True)
+    debitur_desa = models.CharField('Desa debitur', max_length=30, null=True, blank=True)
+    debitur_kecamatan = models.CharField('Kecamatan debitur', max_length=30, null=True, blank=True)
+    debitur_kabupaten = models.CharField('Desa debitur', max_length=30, null=True, blank=True)
+    debitur_propinsi = models.CharField('Propinsi debitur', max_length=30, null=True, blank=True)
+    # isian = models.OneToOneField(form_isian, on_delete=models.CASCADE)
+    
+class objekProperti(models.Model):
+    #relationship
+    # survei = models.OneToOneField(survei, on_delete=models.CASCADE, primary_key=True)
+    #
+    properti_tipeproperti = models.CharField('Tipe properti', max_length=200, null=True, blank=True)
+    properti_luastanah = models.CharField('Luas tanah', max_length=200, null=True, blank=True)
+    properti_alamataset = models.CharField('Alamat aset', max_length=200, null=True, blank=True)
+    #
+    properti_propinsi = models.CharField('Provinsi properti', max_length=200, null=True, blank=True)
+    properti_kabupaten = models.CharField('Kabupaten properti', max_length=200, null=True, blank=True)
+    properti_kecamatan = models.CharField('Kecamatan properti', max_length=200, null=True, blank=True)
+    #
+    properti_kodepos = models.CharField('Kode Pos', max_length=200, null=True, blank=True)
+    properti_notelp = models.CharField('No Telp', max_length=200, null=True, blank=True)
+    properti_titikkoordinat = models.CharField('Titik Koordinat', max_length=200, null=True, blank=True)
+    properti_pencapaianlokasiaksesjalan = models.CharField('Pencapaian Lokasi / Akses Jalan', max_length=200, null=True, blank=True)
+    properti_lebarjalandepanproperti = models.CharField('Lebar jalan depan properti', max_length=200, null=True, blank=True)
+    properti_kondisijalanmaterialjalan = models.CharField('Kondisi jalan / material jalan', max_length=200, null=True, blank=True)
+    properti_penghunipersilsaatini = models.CharField('Penghuni persil saat ini', max_length=200, null=True, blank=True)
+    properti_peruntukaneksisting = models.CharField('Peruntukan eksisting', max_length=200, null=True, blank=True)
+    # bangunan
+    properti_tipebangunan = models.CharField('Tipe bangunan', max_length=200, null=True, blank=True)
+    properti_namabangunan = models.CharField('Nama bangunan', max_length=200, null=True, blank=True)
+    properti_noimb = models.CharField('No imb', max_length=200, null=True, blank=True)
+    properti_luasdilapangan = models.CharField('', max_length=200, null=True, blank=True)
+    properti_noimb = models.CharField('No imb', max_length=200, null=True, blank=True)
+    # properti_luassesuailist = models.CharField('Luas sesuai list', max_length=200, null=False, blank=False)
+    properti_jumlahlantai = models.CharField('Jumlah lantai', max_length=200, null=True, blank=True, default='0')
+    properti_tahunbangun = models.CharField('Tahun bangun', max_length=200, null=True, blank=True, default='0')
+    properti_tahunrenovasi = models.CharField('Tahun renovasi', max_length=200, null=True, blank=True, default='0')
+    properti_tahunpenilaian = models.CharField('Tahun penilaian', max_length=200, null=True, blank=True, default='0')
+    properti_umurekonomis = models.CharField('Umur ekonomis', max_length=200, null=True, blank=True, default='0')
+    properti_ikk = models.CharField('IKK', max_length=200, null=True, blank=True, default='0')
+    properti_ilm = models.CharField('ILM', max_length=200, null=True, blank=True, default='0')
+    
+
+    def __str__(self) :
+        return self.properti_namabangunan
