@@ -7,6 +7,7 @@ from .models import objekProperti #objek properti laman bangunan buat test
 from .models import pemberi_tugas
 from .models import debitur
 from .models import survei
+from .models import customer
 from .forms import LoginForm 
 from .forms import MyForm
 from .forms import RegisterForm
@@ -76,12 +77,12 @@ def kertaskerja(request):
                 properti_titikkoordinat, properti_pencapaianlokasiaksesjalan,
                 properti_lebarjalandepanproperti, properti_kondisijalanmaterialjalan,
                 properti_penghunipersilsaatini, properti_peruntukaneksisting]):
-            new_pemberitugas = pemberi_tugas(
-                pemberitugas_alamat = pemberitugas_alamat,
-                pemberitugas_desa = pemberitugas_desa,
-                pemberitugas_kecamatan = pemberitugas_kecamatan,
-                pemberitugas_kabupaten = pemberitugas_kabupaten,
-                pemberitugas_provinsi = pemberitugas_provinsi,
+            new_pemberitugas = customer(
+                alamat_cust = pemberitugas_alamat,
+                desa_cust = pemberitugas_desa,
+                kecamatan_cust = pemberitugas_kecamatan,
+                kabupaten_cust = pemberitugas_kabupaten,
+                provinsi_cust = pemberitugas_provinsi,
             )
             new_pemberitugas.save()
 

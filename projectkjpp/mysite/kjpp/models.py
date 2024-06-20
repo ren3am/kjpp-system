@@ -15,7 +15,7 @@ class customer (models.Model):
         return self.nama_cust
 
 class form_isian(models.Model):
-    pemberitugas = models.ForeignKey(customer, on_delete=models.CASCADE, blank=True, null=True)
+    # pemberitugas = models.ForeignKey(customer, on_delete=models.CASCADE, blank=True, null=True)
     isian_suratorder_no = models.CharField('No Surat Order', max_length=30, blank=True, null=True)
     isian_suratorder_tanggal = models.DateField('Tanggal Surat Order', blank=True, null=True)
     isian_tujuanpenilaian = models.CharField('Tujuan penilaian', max_length=100, blank=True, null=True)
@@ -32,7 +32,7 @@ class survei(models.Model):
     survei_tanggal = models.DateField('Tanggal Survei', null=True, blank=True)
     survei_tahun = models.IntegerField('Tahun survei', null=True, blank=True)
     survei_pukul = models.CharField('Waktu survei', max_length=10, null=True)
-    isian = models.OneToOneField(form_isian, on_delete=models.CASCADE)
+    # isian = models.OneToOneField(form_isian, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.survei_nosurattugas
@@ -46,17 +46,17 @@ class pegawai(models.Model):
     pegawai_nama = models.CharField('Nama pegawai', max_length=100, null=True, blank=True)
     pegawai_nomappi = models.CharField('No MAPPI pegawai', max_length=100, null=True, blank=True)
     pegawai_noregister = models.CharField('No register pegawai', max_length=100, null=True, blank=True)
-    survei = models.ManyToManyField(survei, through="detail_survei")
+    # survei = models.ManyToManyField(survei, through="detail_survei")
 
     def __str__(self):
         return self.pegawai_nama
 
-#intermediary many to many
+# intermediary many to many
 
-class detail_survei(models.Model):
-    pegawai = models.ForeignKey(pegawai, on_delete=models.CASCADE)
-    survei = models.ForeignKey(survei, on_delete=models.CASCADE)
-    surveidate = models.DateField()
+# class detail_survei(models.Model):
+#     pegawai = models.ForeignKey(pegawai, on_delete=models.CASCADE)
+#     survei = models.ForeignKey(survei, on_delete=models.CASCADE)
+#     surveidate = models.DateField()
 
 # intermediary end
 
@@ -74,13 +74,13 @@ class debitur(models.Model):
     debitur_kecamatan = models.CharField('Kecamatan debitur', max_length=30, null=True, blank=True)
     debitur_kabupaten = models.CharField('Desa debitur', max_length=30, null=True, blank=True)
     debitur_propinsi = models.CharField('Propinsi debitur', max_length=30, null=True, blank=True)
-    isian = models.OneToOneField(form_isian, on_delete=models.CASCADE)
+    # isian = models.OneToOneField(form_isian, on_delete=models.CASCADE)
     
 #TEST DATABASE KERTAS KERJA BANGUNAN
 
 class objekProperti(models.Model):
     #relationship
-    survei = models.OneToOneField(survei, on_delete=models.CASCADE, primary_key=True)
+    # survei = models.OneToOneField(survei, on_delete=models.CASCADE, primary_key=True)
     #
     properti_tipeproperti = models.CharField('Tipe properti', max_length=200, null=True, blank=True)
     properti_luastanah = models.CharField('Luas tanah', max_length=200, null=True, blank=True)
@@ -116,14 +116,7 @@ class objekProperti(models.Model):
 
     def __str__(self) :
         return self.properti_namabangunan
-    
-   
-class customerData (models.Model):
-    customer_nama = models.CharField('Nama customer', max_length=100)
 
-    def __str__(self) :
-        return self.customer_nama
-    
 class pemberi_tugas(models.Model):
     pemberitugas_nama = models.CharField('Nama pemberi tugas', max_length=100, null=True, blank=True)
     pemberitugas_alamat = models.CharField('Alamat pemberi tugas', max_length=100, null=True, blank=True)
